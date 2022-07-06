@@ -86,6 +86,7 @@ $ docker images
 Create a container based on the image:
 ```bash
 $ docker run -it {image_ID} /bin/bash
+$ docker run -it --gpus all -p 8080:8080 -v {host_folder}:{sync_folder_in_container} {image_ID} /bin/bash
 ```
 
 After you entering the container, you can see the container_ID as **root@{container_ID}**
