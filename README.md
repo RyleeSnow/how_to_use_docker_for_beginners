@@ -83,13 +83,13 @@ $ docker images
 
 ## Create and Run a Container
 
-- Create a container based on the image
+Create a container based on the image:
 ```bash
 $ docker run -it {image_ID} /bin/bash
 ```
 
-- After you entering the container, you can see the container_ID as **root@{container_ID}**
-- If you want to use the conda environment, you need to do:
+After you entering the container, you can see the container_ID as **root@{container_ID}**
+If you want to use the conda environment, you need to do:
 ```bash
 $ conda init bash
 
@@ -102,7 +102,7 @@ $ docker attach {container_ID}
 $ conda activate {conda_environment_name}
 ```
 
-- Anytime you want you check your containers:
+Anytime you want you check your containers:
 ```bash
 $ docker ps -a
 ```
@@ -111,12 +111,12 @@ $ docker ps -a
 
 ## Transfer files between the host and the container
 
-- Get the container_long_ID:
+Get the container_long_ID:
 ```bash
 $ docker inspect -f '{{.Id}}' {container_ID}
 ```
 
-- Transfer files
+Transfer files:
 ```bash
 $ docker cp {your_host_file_path} {container_long_ID}:{the_container_file_path}
 ```
