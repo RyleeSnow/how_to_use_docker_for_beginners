@@ -120,3 +120,31 @@ Transfer files:
 ```bash
 $ docker cp {your_host_file_path} {container_long_ID}:{the_container_file_path}
 ```
+<br>
+<br>
+
+## Manage Images and Containers
+Manage images:
+```bash
+$ docker images  # check image
+$ docker run {image_ID}  # run image
+
+$ docker rmi -f {image_ID}  # delete a single image
+$ docker rmi -f {image_ID_1} {image_ID_2} {image_ID_3}  # delete multiple images
+$ docker rmi -f $(docker images -aq)  # delete all images
+```
+Manage containers:
+```bash
+$ docker ps  # check containers
+
+$ docker start {container_ID}  # start a container
+$ docker restart {container_ID}  # restart a container
+$ docker stop {container_ID}  # stop a container
+$ docker kill {container_ID}  # stop the current container
+
+$ docker exec -it {container_ID} /bin/bash  # enter a container and start a new terminal
+$ docker attach {container_ID}  # enter a container and use the current terminal
+
+docker rm -f {container_ID}  # delete a single container
+docker rm -f $(docker ps -aq)  # delete all containers
+```
