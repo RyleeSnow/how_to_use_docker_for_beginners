@@ -2,19 +2,34 @@
 
 System: Linux Ubuntu 
 
-## Try the "Hello-World"
+## "Hello World"
+Usually the docker engine and docker compose have been installed if you are using a server provided by Azure or other cloud platforms.
+
+Check the docker version:
+```bash
+$ docker version  # check the docker engine version
+$ docker compose version  # check the docker compose version
+```
+
+If the version can meet your requirement, you can try to run the "Hello-World" image.
 ```bash
 $ sudo service docker start 
 $ docker run hello-world
 ```
-If the docker is working well, you shall see some outputs like "Hello from Docker! This message shows that your installation appears to be working correctly."
+
+If the docker is working well, you shall see some outputs like
+
+_"Hello from Docker! This message shows that your installation appears to be working correctly."_
 
 ## Install docker
+Instead, if the docker hasn't been installed or the version is not for you, you can install docker.
 [reference: https://docs.docker.com/engine/install/ubuntu/]
+
 - Remove the old version
 ```bash
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
+
 - Set up the repository 
 ```bash
 $ sudo apt-get update
@@ -36,6 +51,7 @@ $ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 ```
+
 - Sometimes, you may need to use a specific version of docker-composer.
 ```bash
 $ curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
