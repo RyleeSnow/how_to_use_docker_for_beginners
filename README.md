@@ -85,6 +85,7 @@ docker images
 - Create a container based on the image
 ```bash
 docker run -it {image_ID} /bin/bash
+
 docker run -it {image_ID} /bin/bash
 ```
 
