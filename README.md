@@ -93,13 +93,9 @@ After you entering the container, you can see the container_ID as **root@{contai
 If you want to use the conda environment, you need to do:
 ```bash
 $ conda init bash
-
 $ exit
-
 $ docker start {container_ID}
-
 $ docker attach {container_ID}
-
 $ conda activate {conda_environment_name}
 ```
 
@@ -146,6 +142,6 @@ $ docker kill {container_ID}  # stop the current container
 $ docker exec -it {container_ID} /bin/bash  # enter a container and start a new terminal
 $ docker attach {container_ID}  # enter a container and use the current terminal
 
-docker rm -f {container_ID}  # delete a single container
-docker rm -f $(docker ps -aq)  # delete all containers
+$ docker rm -f {container_ID}  # delete a single container
+$ docker rm -f $(docker ps -aq)  # delete all containers
 ```
