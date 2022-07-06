@@ -1,6 +1,7 @@
 # How to use docker for the first time
 
-System: Linux Ubuntu 
+**System: Linux Ubuntu** 
+
 
 ## "Hello World"
 Usually the docker engine and docker compose have been installed if you are using a server provided by Azure or other cloud platforms.
@@ -17,12 +18,13 @@ $ sudo service docker start
 $ docker run hello-world
 ```
 
-If the docker is working well, you shall see some outputs like
+If the docker is working well, you shall see some outputs like:
 
 _"Hello from Docker! This message shows that your installation appears to be working correctly."_
 
-## Install docker
-Instead, if the docker hasn't been installed or the version is not for you, you can install docker.
+## Install Docker
+Instead, if the docker hasn't been installed or the version doesn't match, you can install docker by yourself.
+
 [reference: https://docs.docker.com/engine/install/ubuntu/]
 
 - Remove the old version
@@ -41,9 +43,11 @@ $ sudo apt-get install \
     lsb-release
     
 $ sudo mkdir -p /etc/apt/keyrings
+
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 $ sudo apt-get update
+
 $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
  
 $ echo \
@@ -52,33 +56,39 @@ $ echo \
 
 ```
 
-- Sometimes, you may need to use a specific version of docker-composer.
+- Sometimes, you may need to install a specific version of docker-composer (version 1.26 as the example).
 ```bash
 $ curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 $ chmod +x /usr/local/bin/docker-compose
 ```
 
 
-# Install the image
+# Install Image
 
-Run the following comment
+If you have the local image files, including:
+- environment_setting (.py)
+- docker-compose (.yml)
+- Dockerfile
+
+BUild the image:
 ```bash
-python environment.py -n 1 -p 22 -a build
+python environment_setting.py [options]
 ```
 
-You can use the following command to check if the docker image is correctly installed. (You shall see you image name and image_ID, record the ID)
+You can use the following command to check if the docker image is correctly installed. You shall see the image name and **image_ID**.
 
 ```bash
 docker images
 ```
 
-# Create and Run a container
+# Create and Run a Container
 - Create a container based on the image
 ```bash
-docker run -it -v /home/eliza:/home/eliza -v /usr/bin:/usr/bin 0a205763ff4d /bin/bash
-docker run -it -v /home/eliza:/home/eliza --gpus all 0a205763ff4d /bin/bash
+docker run -it {image_ID} /bin/bash
+docker run -it {image_ID} /bin/bash
 ```
-- After you enter the container for the first time, you will see your container_ID as "root@{container_ID}"
+
+- After you enter the container for the first time, you can see the container_ID as **root@{container_ID}**
 - If you want to use the conda environment, you need to do:
 ```bash
 $ conda init bash
